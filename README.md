@@ -5,8 +5,13 @@ Full stack web application built with the MERN stack to help collage students su
 
 I started working on a C++ application with a similar idea to practice my C++ skills but midway through that realized
 that I can turn this idea into a whole seperate more accessible project due to the fact that I realized
-how useful it would be for me and other university students. This project will consist of different tools which I will develop
+how useful it would be for me and other university students. This project will consist of different tools which we will develop
 over time, made specifically for university students to help them manage their student life.
+
+# The team!
+I will work on this project with two of my friends:
+* [Dimitar Kuzmanov](https://github.com/Sylo369)
+* [Atanas Nanov](https://github.com/AtanasNanov)
 
 ### These tools will include:
 
