@@ -2,7 +2,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <main>
       <h1>
         100<span>.00</span>
       </h1>
@@ -19,6 +19,7 @@ function App() {
         </div>
         <button type="submit">Добави нов разход</button>
       </form>
+
       <div className="Spendings">
         <div className="individualSpending">
           <div className="Left">
@@ -26,12 +27,22 @@ function App() {
             <div className="description">Трябва си</div>
           </div>
           <div className="Right">
-            <div className="price">50 лв</div>
+            <div className="price red">-50 лв</div>
+            <div className="datetime">2023-10-16 12:49</div>
+          </div>
+        </div>
+        <div className="individualSpending">
+          <div className="Left">
+            <div className="name">Банков превод</div>
+            <div className="description">Трябва си</div>
+          </div>
+          <div className="Right">
+            <div className="price green">+100 лв</div>
             <div className="datetime">2023-10-16 12:49</div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
