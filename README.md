@@ -1,7 +1,7 @@
-# Studentski-Jivot
+# Studentski Jivot
 Full stack web application built with the MERN stack to help collage students surive
 
-# ABout his project
+# About his project
 
 I started working on a C++ application with a similar idea to practice my C++ skills but midway through that realized
 that I can turn this idea into a whole seperate more accessible project due to the fact that I realized
