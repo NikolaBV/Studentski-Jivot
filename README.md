@@ -21,20 +21,25 @@ over time, made specifically for university students to help them manage their s
 
 ### Node.js
 Head to this link
----
+```
 https://nodejs.org/en
----
+```
+
 And download it for your operating system
 After that you can check you Node is set up with this command
----
+
+```
 node ---version
----
+```
+
 ### IDE Setup
 I personally work with Visual Studio code but it doesn't really matter.
 Open up your working folder in Visual Studio Code and type this command in the terminal:
----
+
+```
 npm install express
----
+```
+
 ### Built with:
 
 * MongoDB
