@@ -24,7 +24,12 @@ I will work on this project with two of my friends:
 
 # How to work on the project?
 
-### Node.js
+First, clone the repo
+```
+git clone github.com/NikolaBV/Studentski-Jivot
+```
+
+### Inatall Node.js
 Head to this link
 ```
 https://nodejs.org/en
@@ -45,6 +50,10 @@ Open up your working folder in Visual Studio Code and type this command in the t
 npm install express
 ```
 
+Start the project locally with this command
+```
+npm start
+```
 ### Built with:
 
 * MongoDB
