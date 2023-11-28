@@ -1,21 +1,37 @@
 import "./App.css";
+import React, { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
+  const [datetime, setDateTime] = useState("");
+  const [description, setDescription] = useState("");
+  function addNewSpending() {}
   return (
     <main>
       <h1>
         100<span>.00</span>
       </h1>
-      <form>
+      <form onSubmit={addNewSpending}>
         <div className="BasicInfo">
           <input
             type="text"
+            value={name}
+            onChange={(ev) => setName(ev.target.value)}
             placeholder={"+50 за покупки от супермаркет"}
           ></input>
-          <input type="datetime-local"></input>
+          <input
+            value={datetime}
+            type="datetime-local"
+            onChange={(ev) => setDateTime(ev.target.value)}
+          ></input>
         </div>
         <div className="Description">
-          <input type="text" placeholder={"Описание"}></input>
+          <input
+            type="text"
+            placeholder={"Описание"}
+            value={description}
+            onChange={(ev) => setDescription(ev.target.value)}
+          ></input>
         </div>
         <button type="submit">Добави нов разход</button>
       </form>
