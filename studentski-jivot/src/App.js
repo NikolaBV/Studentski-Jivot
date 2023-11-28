@@ -5,7 +5,21 @@ function App() {
   const [name, setName] = useState("");
   const [datetime, setDateTime] = useState("");
   const [description, setDescription] = useState("");
-  function addNewSpending() {}
+  const data = { name, description, datetime };
+  function addNewSpending(ev) {
+    ev.preventDefault();
+    const url = process.env.REACT_APP_URL + `/api/spending`;
+    const init = {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(data),
+    };
+    fetch(url, init, {}).then((Response) => {
+      Response.json().then((json) => {
+        console.log("result", json);
+      });
+    });
+  }
   return (
     <main>
       <h1>
