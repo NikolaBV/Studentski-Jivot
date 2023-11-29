@@ -1,38 +1,46 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
   const [datetime, setDateTime] = useState("");
   const [description, setDescription] = useState("");
+  const [spendings, setSpendings] = useState([]);
+
+  useEffect(() => {
+    getSpendings().then((data) => setSpendings(data));
+  }, []);
+
+  async function getSpendings() {
+    const url = process.env.REACT_APP_URL + `/api/spendings`;
+    const response = await fetch(url);
+    return await response.json();
+  }
 
   function addNewSpending(ev) {
     ev.preventDefault();
     const url = process.env.REACT_APP_URL + `/api/spending`;
 
     // Extracting price and name from the input
-    const [priceMatch] = name.match(/([-+]?\d+(\.\d+)?)/) || [];
-    const price = priceMatch ? parseFloat(priceMatch) : 0;
+    const priceMatch = name.match(/([-+]?\d+(\.\d+)?)/);
+    const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
 
-    // Extracting the first word as 'name' from the input
-    const spaceIndex = name.indexOf(" ");
-    const namePart = spaceIndex !== -1 ? name.substring(spaceIndex).trim() : "";
+    // Extracting the name without the price
+    const nameWithoutPrice = name
+      .replace(priceMatch ? priceMatch[0] : "", "")
+      .trim();
 
     // Using the value from the "Description" input for the 'description' field
     const description = document.querySelector(".Description input").value;
-
-    // If the input starts with "-", make sure the extracted price is negative
-    const isNegative = name.startsWith("-");
-    const finalPrice = isNegative ? -price : price;
 
     fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
-        name: namePart,
+        name: nameWithoutPrice,
         description,
         datetime,
-        price: finalPrice,
+        price,
       }),
     })
       .then((response) => response.json())
@@ -72,28 +80,21 @@ function App() {
         </div>
         <button type="submit">Добави нов разход</button>
       </form>
-
       <div className="Spendings">
-        <div className="individualSpending">
-          <div className="Left">
-            <div className="name">Домати и краставици</div>
-            <div className="description">Трябва си</div>
+        {spendings.map((spending) => (
+          <div key={spending.id} className="individualSpending">
+            <div className="Left">
+              <div className="name">{spending.name}</div>
+              <div className="description">{spending.description}</div>
+            </div>
+            <div className="Right">
+              <div className={`price ${spending.price < 0 ? "red" : "green"}`}>
+                {spending.price} лв
+              </div>
+              <div className="datetime">{spending.datetime}</div>
+            </div>
           </div>
-          <div className="Right">
-            <div className="price red">-50 лв</div>
-            <div className="datetime">2023-10-16 12:49</div>
-          </div>
-        </div>
-        <div className="individualSpending">
-          <div className="Left">
-            <div className="name">Банков превод</div>
-            <div className="description">Трябва си</div>
-          </div>
-          <div className="Right">
-            <div className="price green">+100 лв</div>
-            <div className="datetime">2023-10-16 12:49</div>
-          </div>
-        </div>
+        ))}
       </div>
     </main>
   );
