@@ -51,10 +51,16 @@ function App() {
         console.error("Error:", error);
       });
   }
+  let balance = 0;
+  for (const spending of spendings) {
+    balance = balance + spending.price;
+  }
+  balance = balance.toFixed(2);
   return (
     <main>
       <h1>
-        100<span>.00</span>
+        ${balance}
+        <span></span>
       </h1>
       <form onSubmit={addNewSpending}>
         <div className="BasicInfo">
