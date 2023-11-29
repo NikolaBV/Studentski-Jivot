@@ -7,7 +7,10 @@ const { Transaction } = require("mongodb");
 require(`dotenv`).config();
 
 const app = express();
-
+const corsOptions = {
+  origin: "http://localhost:3000", // Update with your React app's URL
+  credentials: true,
+};
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
