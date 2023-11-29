@@ -5,20 +5,43 @@ function App() {
   const [name, setName] = useState("");
   const [datetime, setDateTime] = useState("");
   const [description, setDescription] = useState("");
-  const data = { name, description, datetime };
+
   function addNewSpending(ev) {
     ev.preventDefault();
     const url = process.env.REACT_APP_URL + `/api/spending`;
-    const init = {
+
+    // Extracting price and name from the input
+    const [priceMatch] = name.match(/([-+]?\d+(\.\d+)?)/) || [];
+    const price = priceMatch ? parseFloat(priceMatch) : 0;
+
+    // Extracting the first word as 'name' from the input
+    const spaceIndex = name.indexOf(" ");
+    const namePart = spaceIndex !== -1 ? name.substring(spaceIndex).trim() : "";
+
+    // Using the value from the "Description" input for the 'description' field
+    const description = document.querySelector(".Description input").value;
+
+    // If the input starts with "-", make sure the extracted price is negative
+    const isNegative = name.startsWith("-");
+    const finalPrice = isNegative ? -price : price;
+
+    fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    fetch(url, init, {}).then((Response) => {
-      Response.json().then((json) => {
+      body: JSON.stringify({
+        name: namePart,
+        description,
+        datetime,
+        price: finalPrice,
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
         console.log("result", json);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
-    });
   }
   return (
     <main>
