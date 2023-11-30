@@ -50,6 +50,11 @@ Open up your working folder in Visual Studio Code and type this command in the t
 npm install express
 ```
 
+Start the backend
+```
+node .\api\index.js
+```
+
 Start the project locally with this command
 ```
 npm start
