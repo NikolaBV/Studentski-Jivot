@@ -1,22 +1,99 @@
+/* App.css */
+
+:root {
+  --background-color: #17181f;
+  --primary-color: #333;
+  --secondary-color: #ddd;
+  --accent-color: #ddd;
+  --text-color: #fff;
+  --text-muted: #888;
+  --text-success: #1c1;
+  --text-error: #c11;
+}
+
 * {
   box-sizing: border-box;
 }
+
 body {
-  background-color: #17181f;
-  color: #ddd;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
-main {
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-header {
+  background-color: var(--primary-color);
+  padding: 10px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left img {
+  width: 30px;
+  height: auto;
+}
+
+.header-center h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+nav ul {
+  list-style: none;
+}
+.header-right nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.header-right nav ul li {
+  margin-right: 20px;
+  font-size: 1rem;
+}
+.footer nav ul li {
+  padding: 0.2rem 0;
+  margin: 0;
+}
+nav ul li:hover {
+  opacity: 0.7;
+}
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.spendingsWindow {
   max-width: 350px;
-  margin: 30px auto;
+  margin: auto;
+  text-align: left;
 }
 
 h1 {
   text-align: center;
-  color: #fff;
+  color: var(--text-color);
   margin: 0;
   font-size: 2rem;
 }
+
 h1 span {
   font-size: 1rem;
 }
@@ -24,60 +101,92 @@ h1 span {
 form {
   margin-top: 20px;
 }
+
 form input {
   width: 100%;
   background-color: transparent;
-  color: #ddd;
-  border: 2px solid #30313d;
-  padding: 2px 5px;
+  color: var(--secondary-color);
+  border: 2px solid var(--primary-color);
+  padding: 5px;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
+
 form input[type="datetime-local"] {
-  color: #777;
+  color: var(--text-muted);
 }
-form div.BasicInfo {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 5px;
-}
+
 form button {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 10px;
   border: 0;
   border-radius: 5px;
-  padding: 5px;
-  background-color: #ddd;
+  padding: 10px;
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  cursor: pointer;
 }
-div .Spendings {
+
+.Spendings {
   margin-top: 15px;
 }
-div .individualSpending {
+
+.individualSpending {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
-  border-top: 1px solid #30313d;
+  padding: 10px 0;
+  border-top: 1px solid var(--primary-color);
 }
-div .individualSpending:first-child {
+
+.individualSpending:first-child {
   border-top: 0;
 }
 
-div.individualSpending div.name {
+.individualSpending div.name {
   font-size: 1rem;
 }
-div.individualSpending div.description {
-  font-size: 0.7rem;
-  color: #888;
+
+.individualSpending div.description {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
-div.Right {
+
+.Right {
   text-align: right;
 }
-div.price.green {
-  color: #1c1;
+
+.price.green {
+  color: var(--text-success);
 }
-div.price.red {
-  color: #c11;
+
+.price.red {
+  color: var(--text-error);
 }
-div.individualSpending div.datetime {
-  font-size: 0.7rem;
-  color: #888;
+
+.individualSpending div.datetime {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.right-section .info {
+  text-align: center;
+}
+
+.right-section .info h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.right-section .info p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px;
+  margin-top: auto;
+  text-align: center;
 }

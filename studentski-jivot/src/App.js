@@ -51,58 +51,112 @@ function App() {
         console.error("Error:", error);
       });
   }
+
   let balance = 0;
   for (const spending of spendings) {
     balance = balance + spending.price;
   }
   balance = balance.toFixed(2);
+
   return (
-    <main>
-      <h1>
-        ${balance}
-        <span></span>
-      </h1>
-      <form onSubmit={addNewSpending}>
-        <div className="BasicInfo">
-          <input
-            type="text"
-            value={name}
-            onChange={(ev) => setName(ev.target.value)}
-            placeholder={"+50 за покупки от супермаркет"}
-          ></input>
-          <input
-            value={datetime}
-            type="datetime-local"
-            onChange={(ev) => setDateTime(ev.target.value)}
-          ></input>
+    <div className="container">
+      <div className="page-header">
+        <div className="header-content">
+          <div className="header-left">
+            <img
+              src="https://cdn.shopify.com/s/files/1/1061/1924/files/Money_Face_Emoji.png?9898922749706957214"
+              alt="App Icon"
+            />
+          </div>
+          <div className="header-center">
+            <h1>Студентски Живот</h1>
+          </div>
+          <div className="header-right">
+            <nav>
+              <ul>
+                <li>Начална страница</li>
+                <li>За проекта</li>
+                <li>За нас</li>
+                <li>Вход</li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div className="Description">
-          <input
-            type="text"
-            placeholder={"Описание"}
-            value={description}
-            onChange={(ev) => setDescription(ev.target.value)}
-          ></input>
-        </div>
-        <button type="submit">Добави нов разход</button>
-      </form>
-      <div className="Spendings">
-        {spendings.map((spending) => (
-          <div key={spending.id} className="individualSpending">
-            <div className="Left">
-              <div className="name">{spending.name}</div>
-              <div className="description">{spending.description}</div>
-            </div>
-            <div className="Right">
-              <div className={`price ${spending.price < 0 ? "red" : "green"}`}>
-                {spending.price} лв
+      </div>
+      <div className="main-content">
+        <div className="left-section">
+          <div className="spendingsWindow">
+            <h1>
+              ${balance}
+              <span></span>
+            </h1>
+            <form onSubmit={addNewSpending}>
+              <div className="BasicInfo">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(ev) => setName(ev.target.value)}
+                  placeholder={"+50 за покупки от супермаркет"}
+                ></input>
+                <input
+                  value={datetime}
+                  type="datetime-local"
+                  onChange={(ev) => setDateTime(ev.target.value)}
+                ></input>
               </div>
-              <div className="datetime">{spending.datetime}</div>
+              <div className="Description">
+                <input
+                  type="text"
+                  placeholder={"Описание"}
+                  value={description}
+                  onChange={(ev) => setDescription(ev.target.value)}
+                ></input>
+              </div>
+              <button type="submit">Добави нов разход</button>
+            </form>
+            <div className="Spendings">
+              {spendings.map((spending) => (
+                <div key={spending.id} className="individualSpending">
+                  <div className="Left">
+                    <div className="name">{spending.name}</div>
+                    <div className="description">{spending.description}</div>
+                  </div>
+                  <div className="Right">
+                    <div
+                      className={`price ${
+                        spending.price < 0 ? "red" : "green"
+                      }`}
+                    >
+                      {spending.price} лв
+                    </div>
+                    <div className="datetime">{spending.datetime}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        </div>
+        <div className="right-section">
+          <div className="info">
+            <h1>Твоят финансов асистент</h1>
+            <p>
+              Това е тестов текст колкото да видя как ще изглежда <br></br>
+              когато сложа това което реално трябва да е тук и да
+            </p>
+          </div>
+        </div>
       </div>
-    </main>
+      <div className="footer">
+        <nav>
+          <ul>
+            <li>Начална страница</li>
+            <li>За проекта</li>
+            <li>За нас</li>
+            <li>Вход</li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 }
 
