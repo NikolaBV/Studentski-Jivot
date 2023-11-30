@@ -146,6 +146,10 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="about">
+        <h1>Малко повече за проекта</h1>
+        <p>Този проект има за цел да...</p>
+      </div>
       <div className="footer">
         <nav>
           <ul>

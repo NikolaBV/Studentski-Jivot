@@ -1,14 +1,12 @@
-/* App.css */
-
 :root {
-  --background-color: #17181f;
-  --primary-color: #333;
-  --secondary-color: #ddd;
-  --accent-color: #ddd;
-  --text-color: #fff;
-  --text-muted: #888;
-  --text-success: #1c1;
-  --text-error: #c11;
+  --background-color: #1e272e; /* Dark blueish background */
+  --primary-color: #3498db86; /* Soft blue */
+  --secondary-color: #ecf0f1; /* Light gray text on dark background */
+  --accent-color: #2c3e50; /* Dark gray for sections */
+  --text-color: #ecf0f1; /* Light text on dark background */
+  --text-muted: #bdc3c7; /* Light gray for muted text */
+  --text-success: #2ecc71; /* Soft green */
+  --text-error: #e74c3c; /* Soft red */
 }
 
 * {
@@ -52,6 +50,7 @@ body {
   color: var(--text-color);
 }
 nav ul {
+  display: flex;
   list-style: none;
 }
 .header-right nav ul {
@@ -63,8 +62,11 @@ nav ul {
   margin-right: 20px;
   font-size: 1rem;
 }
+.footer nav ul {
+  justify-content: center;
+}
 .footer nav ul li {
-  padding: 0.2rem 0;
+  padding: 0.5rem;
   margin: 0;
 }
 nav ul li:hover {
@@ -74,7 +76,27 @@ nav ul li:hover {
   display: flex;
   flex: 1;
 }
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
 
+.about h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin: 0;
+  font-size: 2rem;
+}
+
+.about p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 10px; /* Add margin for spacing */
+}
 .left-section,
 .right-section {
   flex: 1;
