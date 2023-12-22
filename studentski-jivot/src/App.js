@@ -59,29 +59,72 @@ function App() {
   balance = balance.toFixed(2);
 
   return (
-    <div className="container">
+    <html>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+          integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+          crossorigin="anonymous"
+        ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+      </head>
       <div className="page-header">
-        <div className="header-content">
-          <div className="header-left">
-            <img
-              src="https://cdn.shopify.com/s/files/1/1061/1924/files/Money_Face_Emoji.png?9898922749706957214"
-              alt="App Icon"
-            />
-          </div>
-          <div className="header-center">
-            <h1>Студентски Живот</h1>
-          </div>
-          <div className="header-right">
-            <nav>
-              <ul>
-                <li>Начална страница</li>
-                <li>За проекта</li>
-                <li>За нас</li>
-                <li>Вход</li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">
+            Студентски Живот
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="d-flex justify-content-between w-100">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">
+                    Начална страница <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Инструменти за студенти
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Контакти
+                  </a>
+                </li>
               </ul>
-            </nav>
+              <ul class="navbar-nav login-page">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Вход
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        </nav>
       </div>
       <div className="main-content">
         <div className="left-section">
@@ -160,7 +203,7 @@ function App() {
           </ul>
         </nav>
       </div>
-    </div>
+    </html>
   );
 }
 
