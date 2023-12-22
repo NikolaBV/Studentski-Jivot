@@ -13,7 +13,9 @@
   margin: 0;
   padding: 0;
 }
-
+.btn {
+  background-color: red;
+}
 body {
   color: var(--secondary-color);
   margin: 0;

@@ -27,9 +27,9 @@ function NavBar() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <Link to="/SpendingsPage" className="nav-link">
                   Инструменти за студенти
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
