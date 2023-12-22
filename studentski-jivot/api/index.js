@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello, this is the root path!");
+  res.send("Server is running on port 4040");
 });
 
 app.post("/api/spending", async (req, res) => {
