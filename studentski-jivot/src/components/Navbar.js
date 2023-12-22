@@ -1,7 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Login from "../pages/Login";
-
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className="page-header">
@@ -41,7 +39,7 @@ function NavBar() {
             </ul>
             <ul class="navbar-nav login-page">
               <li className="nav-item">
-                <Link to="/login" className="nav-link">
+                <Link to="/Login" className="nav-link">
                   Вход
                 </Link>
               </li>
