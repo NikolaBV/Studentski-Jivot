@@ -1,5 +1,4 @@
 :root {
-  --background-color: red;
   --primary-color: #3498db86;
   --secondary-color: #ecf0f1;
   --accent-color: #2c3e50;
@@ -14,9 +13,10 @@
   margin: 0;
   padding: 0;
 }
-
+.btn {
+  background-color: red;
+}
 body {
-  background-color: var(--background-color);
   color: var(--secondary-color);
   margin: 0;
   font-family: "Arial", sans-serif;
