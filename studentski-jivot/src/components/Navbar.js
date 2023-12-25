@@ -39,8 +39,8 @@ function NavBar() {
             </ul>
             <ul class="navbar-nav login-page">
               <li className="nav-item">
-                <Link to="/Login" className="nav-link">
-                  Вход
+                <Link to="/register" className="nav-link">
+                  Регистрация
                 </Link>
               </li>
             </ul>

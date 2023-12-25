@@ -112,12 +112,12 @@ form button {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
-.loginForm {
+.registerForm {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.loginForm button {
+.registerForm button {
   width: 100%;
   margin-top: 10px;
   border: 0;

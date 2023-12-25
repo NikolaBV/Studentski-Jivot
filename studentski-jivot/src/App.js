@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Login from "./pages/Login";
+import Register from "./pages/Register";
 import "./App.css";
 import SpendingsPage from "./pages/SpendingsPage";
 
@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/SpendingsPage" element={<SpendingsPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
       <head>
