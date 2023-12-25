@@ -14,7 +14,6 @@
   padding: 0;
 }
 .btn {
-  background-color: red;
 }
 body {
   color: var(--secondary-color);
@@ -112,4 +111,19 @@ form button {
 .individualSpending div.datetime {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginForm button {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  cursor: pointer;
 }
