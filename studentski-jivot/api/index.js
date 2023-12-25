@@ -3,7 +3,6 @@ const cors = require(`cors`);
 const Spending = require(`./models/Spending.js`);
 const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
-const { Transaction } = require("mongodb");
 require(`dotenv`).config();
 
 const app = express();
@@ -37,6 +36,17 @@ app.get("/api/spendings", async (req, res) => {
   res.json(spendings);
 });
 
+//Login endpoints
+/*
+
+*GET Request test
+
+app.get("/api/login", (req, res) => {
+  const { email, password } = req.query;
+  console.log(`Email: ${email}, Password: ${password}`);
+  res.json({ message: "Received credentials", email, password });
+});
+*/
 app.listen(4040, () => {
   console.log("Server is running on port 4040");
 });
