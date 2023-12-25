@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-function Login() {
+function Register() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const url = `http://localhost:4040/api/login?email=${encodeURIComponent(
+    const url = `http://localhost:4040/api/register?email=${encodeURIComponent(
       email
     )}&password=${encodeURIComponent(password)}`;
     const response = await fetch(url);
@@ -14,13 +14,26 @@ function Login() {
     console.log(data);
   };
 
+  function addNewUser(ev) {
+    ev.preventDefault();
+    const url = process.env.REACT_APP_URL + `/api/register`;
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+  }
+
   return (
     <html>
       <head></head>
       <div className="container">
         <div className="row">
-          <div className="loginForm">
-            <form onSubmit={handleSubmit}>
+          <div className="registerForm">
+            <form onSubmit={addNewUser}>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email адрес</label>
                 <input
@@ -44,7 +57,7 @@ function Login() {
                 ></input>
               </div>
               <button type="submit" class="btn btn-light">
-                Submit
+                Регистрирай се
               </button>
             </form>
           </div>
@@ -54,4 +67,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

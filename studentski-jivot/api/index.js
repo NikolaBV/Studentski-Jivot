@@ -1,13 +1,14 @@
 const express = require("express");
 const cors = require(`cors`);
 const Spending = require(`./models/Spending.js`);
+const User = require(`./models/User.js`);
 const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
 require(`dotenv`).config();
 
 const app = express();
 const corsOptions = {
-  origin: "http://localhost:3000", // Update with your React app's URL
+  origin: "http://localhost:3000",
   credentials: true,
 };
 app.use(cors());
@@ -36,7 +37,6 @@ app.get("/api/spendings", async (req, res) => {
   res.json(spendings);
 });
 
-//Login endpoints
 /*
 
 *GET Request test
@@ -47,6 +47,18 @@ app.get("/api/login", (req, res) => {
   res.json({ message: "Received credentials", email, password });
 });
 */
+
+//Registerin functionality
+app.post("/api/register", async (req, res) => {
+  await mongoose.connect(process.env.MONGO_URL);
+  const { email, password } = req.body;
+  const user = await User.create({
+    email,
+    password,
+  });
+  res.json(user);
+});
+
 app.listen(4040, () => {
   console.log("Server is running on port 4040");
 });
